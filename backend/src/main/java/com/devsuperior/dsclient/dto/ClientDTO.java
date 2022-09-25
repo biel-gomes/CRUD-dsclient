@@ -1,10 +1,13 @@
 package com.devsuperior.dsclient.dto;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import com.devsuperior.dsclient.entities.Client;
 
-public class ClientDTO {
+public class ClientDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 	private String name;
 	private String cpf;
@@ -25,6 +28,7 @@ public class ClientDTO {
 	}
 
 	public ClientDTO(Client entity) {
+		this.id = entity.getId();
 		this.name = entity.getName();
 		this.cpf = entity.getCpf();
 		this.income = entity.getIncome();
